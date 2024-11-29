@@ -1,0 +1,26 @@
+query RunInput {
+  cart {
+    cost {
+      totalAmount {
+        amount 
+      }
+    }
+    buyerIdentity {
+      customer {
+        walletBalance: metafield(namespace: "custom", key: "wallet_balance") {
+          value
+        }
+        walletBalanceCache: metafield(namespace: "custom", key: "wallet_balance_cache") {
+          value
+        }
+        hasTags(tags: ["NewWalletTransaction"]) {
+          hasTag
+        }
+      }
+    }
+  }
+  paymentMethods {
+    id
+    name
+  }
+}
